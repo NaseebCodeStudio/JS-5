@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" href="NCS.png" type="image/x-icon">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      background: #e3edf7;
+    }
+
+    .icon {
+      width: 100px;
+      height: 100px;
+      border: 2px solid red;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+      background-image: url(NCS.png);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .drop {
+      margin: 50px auto;
+      max-width: 600px;
+    }
+
+    .drop li {
+      list-style: none;
+      width: 100%;
+      margin: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #e3edf7;
+      box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgb(255, 255, 255, 0.7);
+    }
+
+    .drop li label {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: "+";
+      margin-right: 10px;
+      font-size: 24px;
+      font-weight: bolder;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .drop .content {
+      text-align: justify;
+      color: #555;
+      padding: 0 10px;
+      line-height: 26px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s, padding 0.5s;
+    }
+
+    .drop input[type="radio"]:checked+label+.content {
+      max-height: 400px;
+      padding: 10px 10px 20px;
+      overflow: auto;
+    }
+
+    .drop input[type="radio"]:checked+label::before {
+      content: "-";
+    }
+
+    @media (max-width: 360px) {
+      .drop {
+        margin: 50px auto;
+        max-width: 360px;
+      }
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- icon right  -->
+  <a href="https://www.youtube.com/@NaseebCodeStudio" target="_blank">
+    <div class="icon"></div>
+  </a>
+  <!-- ==================first drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="first1" />
+      <label for="first1">Concatenation & console.table([]);</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          <b>Concatenation</b> in JavaScript refers to the process of joining two or more strings together to create a
+          new string. It is commonly achieved using the + operator or the concat() method.
+          <br>
+          Here's how you can concatenate strings using the + operator: <br>
+          <span style="color: red;">
+            const firstName = "Naseeb"; <br>
+            const lastName = "Khan"; <br>
+            const fullName = firstName + " " + lastName; <br>
+            console.log(fullName); // Output: "Naseeb Khan" <br>
+          </span>
+          <hr>
+          You can also use <b>template literals</b> <br>Template literals "backticks ``", introduced in ES6/ES2015, are
+          a way to create strings in JavaScript that allow for easier string interpolation and multiline strings: <br>
+
+
+          <span style="color: red;">
+            const firstName = "Naseeb"; <br>
+            const lastName = "Khan"; <br>
+            const fullName = `${firstName} ${lastName}`; <br>
+            console.log(fullName); // Output: "Naseeb Khan" <br>
+          </span>
+          In this example, the variables names are included directly within the string using ${}. When the code runs,
+          the values of names are automatically inserted into the string. <br>
+          Template literals also support multiline strings, which means you can include line breaks within the string
+          without using special escape characters like \n. <br>
+          <span style="color: red;">
+            const multiline = ` <br>
+            This is a <br>
+            multiline <br>
+            string. <br>
+            `; <br>
+            console.log(multiline);
+          </span>
+          <br>This makes template literals a convenient and more readable way to work with strings in JavaScript.
+          <hr>
+          Now, imagine you have some information that you want to display <b>neatly,</b> like in a <b>table.</b>
+          console.table() in JavaScript lets you do just that. <br>
+          <b style="color: red;">For example,</b> if you have a list of items with properties like name, age, and
+          country, you can display them in a table format in the console using console.table([]). <br>
+          <span style="color: red;">
+            const name1 = "Naseeb"; <br>
+            const name2 = "Khan"; <br>
+            const age = 22; <br>
+            console.table([name1, name2, age]);
+          </span> <br>
+          When you run this code, you'll see the information displayed in a neat table format in the console, making it
+          easier to read and understand, especially for larger datasets. <br>
+          <!-- --p --  -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================first drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="first" />
+      <label for="first">Hoisting</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          - Hoisting is a JavaScript mechanism where variables and function <b>declarations are moved to the top</b> of
+          their
+          containing scope during the compilation phase, before the code is executed. <br>
+
+          - In simpler terms, variables and functions in JavaScript can be used <b>before they are declared.</b> When
+          JavaScript code is executed, variable and function <b>declarations are "hoisted" to the top</b> of their
+          containing
+          scope. However, only the declarations are hoisted, not the initializations or assignments. <br>
+          <span style="color: red;font-weight: bold;">For Example:</span> <br>
+          <span>
+            console.log(x); // Output: undefined <br>
+            var x = 5; <br>
+          </span>
+          In the above code, even though <b>x is logged before</b> it's declared and assigned a value, it doesn't cause
+          an error. This is because the declaration of x is hoisted to the top of the scope by the JavaScript engine
+          during compilation. However, the value is not hoisted, so at the time of logging, <b>x is undefined.</b> <br>
+          Similarly, function declarations are also hoisted.
+          <!-- --p --  -->
+        </p>
+      </div>
+    </li>
+  </ul>
+
+  <!-- ==================second drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="second" />
+      <label for="second" style="text-transform: capitalize">Reference Data Types</label>
+      <div class="content">
+        <p>
+          <!-- -- p --  -->
+          In JavaScript, reference data types (also known as reference types) are types that hold references to objects
+          stored in memory. Unlike primitive data types (such as numbers, strings, booleans, null, and undefined),
+          reference data types do not directly contain their values; instead, they contain references (memory addresses)
+          to the locations in memory where the actual data is stored. <br>
+          <b>The main reference data types in JavaScript are:</b> <br>
+          <hr>
+          <b>Object:</b> Objects are collections of key-value pairs, where keys are strings (or symbols) and values can
+          be of any data type, including other objects, functions, arrays, and primitives.
+          <br>
+          <span style="color: red;">
+            const person = { <br>
+            name: "Naseeb Khan", <br>
+            age: 22, <br>
+            city: "Quetta" <br>
+            };
+          </span>
+          <hr>
+          <b>Array:</b> Arrays are ordered collections of elements, each identified by an index. They can hold elements
+          of any data type, including other arrays and objects. <br>
+          <span style="color: red;">
+            const numbers = [1, 2, 3, 4, 5];
+          </span>
+          <hr>
+          <b>Function:</b> Functions are objects in JavaScript. They can be assigned to variables, passed as arguments
+          to other functions, and returned from functions. Functions can also have properties and methods. <br>
+          <span style="color: red;">
+
+            function greet(name) { <br>
+            console.log("Hello, " + name + "!"); <br>
+            }
+          </span>
+          <hr>
+          <b>Date:</b> The Date object represents a specific point in time. It allows you to work with dates and times,
+          including creating, formatting, and manipulating dates.
+          <br>
+          <span style="color: red;">
+            const currentDate = new Date();
+          </span>
+          <hr>
+          <b>RegExp:</b> The RegExp object represents a regular expression pattern. It is used for pattern matching and
+          searching within strings. <br>
+          <span style="color: red;">
+            const pattern = /[a-z]+/i;
+          </span>
+          <hr>
+          <b>Symbol (Introduced in ES6/ES2015):</b> Symbols are unique and immutable primitive values that can be used
+          as object property keys to avoid naming collisions.
+          <br>
+          <span style="color: red;">
+            const mySymbol = Symbol();
+          </span>
+          <br>
+          <hr>
+          <span style="color: blue; display: block; text-align: center; padding-inline: 10px;">
+            Reference data types are stored and manipulated by reference, meaning that when you assign a reference data
+            type to a variable or pass it as an argument to a function, you're actually working with a reference to the
+            original data stored in memory, rather than a copy of the data itself. This has implications for how
+            reference data types behave in terms of assignment, comparison, and function calls.
+          </span>
+
+
+          <!-- -- p --  -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================third drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="third" />
+      <label for="third">OBJECT</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          In JavaScript, an object is a complex data type that allows you to <b>store collections of key-value
+            pairs,</b> where keys are strings (or symbols) and values can be of any data type, including other objects,
+          functions, arrays, and primitives. <br>
+
+          <b>Objects in JavaScript</b> are similar to real-life objects in that they have properties and methods.
+          Properties are the characteristics or attributes of an object, while methods are the functions associated with
+          the object that can perform actions or calculations. <br>
+          <b>Here's how you can create and work with objects in JavaScript:</b>
+          <br>
+          <hr>
+          <b>Object Literal:</b> <br>
+          You can create an object using object literal notation, which consists of curly braces {}. <br>
+          <span style="color: red;">
+            const person = { <br>
+            name: "Naseeb Khan", <br>
+            age: 22, <br>
+            city: "Quetta", <br>
+            greet: function() { <br>
+            console.log("Hello, " + this.name + "!"); <br>
+            } <br>
+            }; <br>
+          </span>
+          <hr>
+          <b>Accessing Properties:</b> <br>
+          You can access object properties using dot notation (objectName.propertyName) or bracket notation
+          (objectName['propertyName']). <br>
+          <span style="color: red;">
+            console.log(person.name); // Output: "Naseeb Khan" <br>
+            console.log(person['age']); // Output: 22 <br>
+          </span>
+          <hr>
+          <b>Adding and Modifying Properties:</b> <br>
+          You can add new properties to an object or modify existing properties. <br>
+          <span style="color: red;">
+            person.job = "Engineer"; <br>
+            person['age'] = 25; <br>
+          </span>
+          <hr>
+          <b>Methods:</b>
+          <br>
+          Objects can also contain functions, known as methods, which can be used to perform actions related to the
+          object.
+          <br>
+          <span style="color: red;">
+            person.greet(); // Output: "Hello, Naseeb Khan!"
+            <br>
+          </span>
+          <hr>
+          <b>Object Constructor:</b>
+          <br>
+          You can create objects using constructor functions and the new keyword. <br>
+          <span style="color: red;">
+            function Person(name, age) { <br>
+            this.name = name; <br>
+            this.age = age; <br>
+            this.greet = function() { <br>
+            console.log("Hello, " + this.name + "!"); <br>
+            }; <br>
+            } <br>
+            const john = new Person("Naseeb Khan", 25); <br>
+          </span>
+          <hr>
+          <!-- --p-- -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================third drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="six" />
+      <label for="six">DOT/Bracket notation</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          <b>1. Dot Notation:</b> <br>
+          Dot notation is a way to access properties and methods of an object using a dot (.) followed by the property
+          or method name. It's the most common and straightforward way to access object properties. <br>
+          <span style="color: red;">
+            const person = { <br>
+            name: "Naseeb Khan", <br>
+            age: 23 <br>
+            }; <br>
+
+            console.log(person.name); // Output: "Naseeb Khan" <br>
+            console.log(person.age); // Output: 23 <br>
+          </span>
+          <hr>
+          <b>2. Bracket Notation:</b> <br>
+          Bracket notation is another way to access object properties and methods using square brackets []. It allows
+          you to access properties dynamically, using variables or expressions inside the brackets. <br>
+
+          <span style="color: red;">
+            const person = { <br>
+            name: "Naseeb Khan", <br>
+            age: 23 <br>
+            }; <br>
+
+            console.log(person['name']); // Output: "Naseeb Khan" <br>
+            console.log(person['age']); // Output: 23 <br>
+
+          </span>
+          <hr>
+          You can also use bracket notation to access properties with special characters or reserved words: <br>
+          <span style="color: red;">
+            const person = { <br>
+            'first name': "Naseeb", <br>
+            'last name': "Khan" <br>
+            }; <br>
+
+            console.log(person['first name']); // Output: "Naseeb" <br>
+            console.log(person['last name']); // Output: "Khan" <br>
+
+          </span>
+          <hr>
+          <b>When to Use:</b> <br>
+
+          - Use dot notation when you know the property name in advance and it's a valid identifier. <br>
+          - Use bracket notation when the property name is dynamic (e.g., stored in a variable) or contains special
+          characters. <br>
+          Both dot notation and bracket notation can be used interchangeably in most cases, but bracket notation
+          provides more flexibility when working with dynamic property names or special characters.
+          <!-- --p-- -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================third drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="sixty" />
+      <label for="sixty">Arrays</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          Imagine you have a bunch of items that you want to keep together in a list. An array in JavaScript is like a
+          container where you can store multiple pieces of information, such as numbers, strings, or even other arrays,
+          all in one place. <br>
+
+          Here's how you can create an array: <br>
+          <span style="color: red;">
+            const fruits = ["apple", "banana", "orange", "kiwi"];
+          </span>
+          <br>
+          In this example, fruits is an array that contains four elements: "apple", "banana", "orange", and "kiwi".
+          <br>
+          You can access individual elements in the array using their index. In JavaScript, array indexes start from 0.
+          So, to access the first element "apple", you would use fruits[0]. <br>
+          <span style="color: red;">
+            console.log(fruits[0]); // Output: "apple" <br>
+            console.log(fruits[1]); // Output: "banana" <br>
+
+          </span>
+          <hr>
+          Arrays are versatile and powerful data structures in JavaScript, allowing you to store and manipulate
+          collections of data efficiently. They are used extensively in programming for tasks like storing lists of
+          items, managing data, and performing operations on groups of elements.
+          <!-- --p-- -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================third drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="sixtx" />
+      <label for="sixtx">Function</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          - In JavaScript, functions are <b>blocks of code</b> that perform a specific task. They are like small,
+          reusable programs within your code. <br> - Functions take inputs, <b>perform operations</b> on them, and can
+          return a result. They help to organize your code, make it more readable, and enable you <b>to reuse code
+            instead</b> of writing the same instructions multiple times. You can <b>define functions</b> using the
+          function keyword followed by a name, parameters (if any), and the code block enclosed in curly braces {}. <br>
+          <b>Here's an example:</b> <br>
+          <span style="color: red;">
+            1. <br>
+            function greet(){<br>
+            console.log("hello world!");<br>
+            }<br>
+            // calling: <br>
+            greet(); <br>
+            <br>OR<br>
+            2. <br>
+            // Defining a function named 'greet' <br>
+            function greet(name) { <br>
+            return "Hello, " + name + "!"; <br>
+            } <br>
+
+            // Calling the 'greet' function <br>
+            console.log(greet("Naseeb")); // Output: "Hello, Naseeb!" <br>
+
+          </span>
+          - In this example, greet is a function that takes one parameter name. Inside the function, it concatenates the
+          string "Hello, " with the provided name and returns the result. When we call the greet function with the
+          argument "Naseeb", it returns "Hello, Naseeb!", which we then log to the console. Functions are essential
+          building blocks in JavaScript programming, enabling you to write modular and reusable code.
+          <!-- --p-- -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <!-- ==================third drop================== -->
+  <ul class="drop">
+    <li>
+      <input type="radio" name="drop" id="lastx" />
+      <label for="lastx">Parameter & Arguments</label>
+      <div class="content">
+        <p>
+          <!-- --p-- -->
+          In JavaScript, functions can have parameters and accept arguments. Here's a breakdown of the difference
+          between arguments and parameters: <br>
+          <b> Parameters:</b> <br>
+
+          - Parameters are placeholders defined in the function declaration. <br>
+          - They are like variables that represent the values that the function expects to receive when it is called.
+          <br>
+          - Parameters are listed inside the parentheses of the function declaration. <br>
+          - Parameters are used to define the function's behavior and what kind of input it can accept. <br>
+          <b>Example:</b> <br>
+          <span style="color: red;">
+            function greet(name) { <br>
+            return "Hello, " + name + "!"; <br>
+            }
+            <br>
+          </span>
+          <hr>
+          In this example, name is a parameter of the greet function. <br>
+          <b>Arguments:</b> <br>
+
+          - Arguments are the actual values passed to the function when it is called. <br>
+          - They are the concrete values that replace the parameters when the function is executed. <br>
+          - Arguments are provided inside the parentheses when calling the function. <br>
+          <b>Example:</b>
+          <br>
+          <span style="color: red;">
+            console.log(greet("Naseeb")); <br>
+          </span>
+          n this example, "Naseeb" is an argument passed to the greet function. <br>
+          <hr>
+          <b>In summary,</b> parameters are the placeholders defined in the function declaration, while arguments are
+          the actual values passed to the function when it is called. Parameters are used to define a function's
+          behavior, while arguments are the data that the function operates on.
+          <!-- --p-- -->
+        </p>
+      </div>
+    </li>
+  </ul>
+  <br><br><br><br>
+</body>
+
+</html>
